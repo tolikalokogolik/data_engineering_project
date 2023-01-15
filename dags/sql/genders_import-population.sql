@@ -1,0 +1,1 @@
+COPY genders_import FROM '/import/join_authors_genders.csv' DELIMITER ',' CSV HEADER;

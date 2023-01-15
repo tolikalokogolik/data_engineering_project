@@ -1,0 +1,1 @@
+COPY authors_publications_bridge_import FROM '/import/join_authors_publications.csv' DELIMITER ',' CSV HEADER;

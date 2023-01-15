@@ -1,0 +1,1 @@
+COPY publications_import FROM '/import/final_publication_table.csv' DELIMITER ',' CSV HEADER;

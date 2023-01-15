@@ -1,0 +1,1 @@
+COPY publ_versions_data_import FROM '/import/publ_versions_data.csv' DELIMITER ',' CSV HEADER;
