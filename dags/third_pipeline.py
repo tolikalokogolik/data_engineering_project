@@ -4,8 +4,7 @@ import datetime
 from airflow import DAG
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
-# create_pet_table, populate_pet_table, get_all_pets, and get_birth_date are examples of tasks created by
-# instantiating the Postgres Operator
+
 DEFAULT_ARGS ={
     'owner':'airflow',
     'start_date': airflow.utils.dates.days_ago(1),
@@ -118,57 +117,7 @@ with DAG(
         postgres_conn_id="postgres_default",
         sql="sql/process/80_versions.sql",
     )
-    # create_kym_url_safe_search_table = PostgresOperator(
-    #     task_id="create_kym_url_safe_search_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_safe_search-schema.sql",
-    # )
-    # populate_kym_url_safe_search_table = PostgresOperator(
-    #     task_id="populate_kym_url_safe_search_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_safe_search-populate.sql",
-    # )
-    # create_url_label_annotation_table = PostgresOperator(
-    #     task_id="create_url_label_annotation_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_label_annotation-schema.sql",
-    # )
-    # populate_url_label_annotation_table = PostgresOperator(
-    #     task_id="populate_url_label_annotation_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_label_annotation-populate.sql",
-    # )
-    # create_url_pagesWithMatchingImages_table = PostgresOperator(
-    #     task_id="create_url_pagesWithMatchingImages_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_pagesWithMatchingImages-schema.sql",
-    # )
-    # populate_url_pagesWithMatchingImages_table = PostgresOperator(
-    #     task_id="populate_url_pagesWithMatchingImages_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/kym_url_pagesWithMatchingImages-populate.sql",
-    # )
-    # create_dim_date_table  = PostgresOperator(
-    #     task_id="create_dim_date_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/process/10_dim_creation_date.sql",
-    # )
-    # transform_dim_meme_details_table  = PostgresOperator(
-    #     task_id="transform_dim_meme_details_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/process/20_dim_meme_details.sql",
-    # )
-    # transform_dim_vision_profanity_table  = PostgresOperator(
-    #     task_id="transform_dim_vision_profanity_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/process/30_dim_vision_profanity_scores.sql",
-    # )
-
-    # transform_fact_meme_creation_table  = PostgresOperator(
-    #     task_id="transform_fact_meme_creation_table",
-    #     postgres_conn_id="postgres_default",
-    #     sql="sql/process/40_fact_meme_creation.sql",
-    # )
+   
 
     [create_authors_publications_bridge_import >> populate_authors_publications_bridge_import,
     create_publication_versions >> populate_publication_versions,
@@ -176,14 +125,4 @@ with DAG(
     create_gender_data_import >> populate_gender_data_import  ] >> create_dim_gender,
     create_publications_import >> populate_publications_import >> [create_dim_journal,create_dim_discipline,
     create_dim_publication_type] >> create_fact_publications]   >> create_bridge_authors_publications >> create_bridge_versions
-    # create_kym_url_safe_search_table >> populate_kym_url_safe_search_table
-    # create_url_label_annotation_table >> populate_url_label_annotation_table
-    # create_url_pagesWithMatchingImages_table >> populate_url_pagesWithMatchingImages_table
-    
-    # [
-    #     populate_kym_meme_profan_table,
-    #     populate_kym_url_safe_search_table,
-    #     populate_url_label_annotation_table,
-    #     populate_url_pagesWithMatchingImages_table,
-    # ] >> create_dim_date_table >> transform_dim_meme_details_table >> transform_dim_vision_profanity_table >> transform_fact_meme_creation_table
-  
+ 
