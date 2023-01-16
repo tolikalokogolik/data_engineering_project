@@ -208,7 +208,7 @@ The graph view allows addressing the following query questions:
 The results of the above queries are presented below:
 1) Co-authors discover of E. L. Berge:
 
-![co-authors](images/1query.png)
+![co-authors](images/1query.PNG)
 
 2) TOP 5 authors with their citations count:
 
