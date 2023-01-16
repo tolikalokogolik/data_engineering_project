@@ -103,6 +103,7 @@ Output:
 - ```gender_data.csv```
 - ```authors_data.csv```
 - ```join_authors_genders.csv```
+- ```join_authors_publications.csv```
 - ```publ_versions_data.csv``` 
 - ```reference_count_data.csv``` 
 - ```sql/reference_count_data_import.sql```
