@@ -118,7 +118,7 @@ with DAG(
         sql="sql/process/80_versions.sql",
     )
    
-
+#airflow tasks initiation
     [create_authors_publications_bridge_import >> populate_authors_publications_bridge_import,
     create_publication_versions >> populate_publication_versions,
     [create_authors_data_import >> populate_authors_data_import >> create_dim_author,
