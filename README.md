@@ -62,8 +62,6 @@ Following part describes pipelines that are used in this project:
 3) DWH
 4) Graph View
 
-![Pipeline design](images/Blank diagram.PNG) 
-
 ---
 
 ### Pipeline 1 - Ingestion & Wrangling
